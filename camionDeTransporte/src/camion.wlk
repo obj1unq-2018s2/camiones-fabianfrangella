@@ -3,7 +3,7 @@ import cosas.*
 object camion {
 
 	var property carga = [ knightRider, bumbleBee ]
-
+	const tara = 1000
 	method cargar(cosa) {
 		carga.add(cosa)
 	}
@@ -12,7 +12,7 @@ object camion {
 		carga.remove(cosa)
 	}
 
-	method pesoTotal() = 1000 + carga.sum{ cosa => cosa.peso() }
+	method pesoTotal() = tara + carga.sum{ cosa => cosa.peso() }
 
 	method excedidoDePeso() = self.pesoTotal() > 2500
 

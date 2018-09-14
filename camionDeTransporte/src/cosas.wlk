@@ -20,18 +20,16 @@ object paqueteDeLadrillos {
 
 	var property peso = cantidadDeLadrillos * 2
 	var property cantidadDeLadrillos = 1
-	var property peligrosidad = 2
 
-	method agregarLadrillo() {
-		cantidadDeLadrillos += 1
-	}
+	method peligrosidad() = 2
 
 }
 
 object arenaAGranel {
 
 	var property peso
-	var property peligrosidad = 1
+
+	method peligrosidad() = 1
 
 }
 
@@ -47,9 +45,15 @@ object bateriaAntiAerea {
 
 object contenedorPortuario {
 
-	var property cosas = []
+	const property cosas = [ knightRider, bumbleBee ]
+	const pesoVacio = 100
+	method peligrosidad() = if (cosas.isEmpty()) 0 else cosas.max{ cosa => cosa.peligrosidad() }.peligrosidad()
 
-	method peso() = cosas.sum{ cosa => cosa.peso() }
+	method peso() = cosas.sum{ cosa => cosa.peso() } + pesoVacio
+
+	method agregarCosa(cosa) {
+		cosas.add(cosa)
+	}
 
 }
 

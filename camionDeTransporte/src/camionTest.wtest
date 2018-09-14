@@ -1,0 +1,9 @@
+import camion.*
+import cosas.*
+
+test "la cobertura de seguridad con los residuos radioactivos" {
+	residuosRadioactivos.peso(300)
+	embalajeDeSeguridad.objeto(residuosRadioactivos)
+	assert.equals(300,embalajeDeSeguridad.peso())
+	assert.equals(100,embalajeDeSeguridad.peligrosidad())
+}
